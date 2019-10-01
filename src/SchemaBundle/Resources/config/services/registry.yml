@@ -1,0 +1,11 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    SchemaBundle\Registry\SchemaGeneratorRegistryInterface: '@SchemaBundle\Registry\SchemaGeneratorRegistry'
+    SchemaBundle\Registry\SchemaGeneratorRegistry:
+        arguments:
+            $interface: SchemaBundle\Generator\GeneratorInterface

@@ -1,0 +1,78 @@
+sudo: true
+language: php
+addons:
+    mariadb: '10.2'
+services:
+    - mysql
+env:
+    global:
+        - PIMCORE_ENVIRONMENT=test
+        - DACHCOM_BUNDLE_TEST=1
+        - PIMCORE_TEST_URL=http://localhost
+        - PIMCORE_TEST_DB_DSN="mysql://root@localhost/dachcom_bundle_test"
+        - SYMFONY_DEPRECATIONS_HELPER=weak
+        - DACHCOM_TEST_SECTION=codeception
+        - SYMFONY_VERSION=^4.0
+matrix:
+    include:
+        -   name: "PHPStan Static Analysis (Pimcore 6.2.x, Symfony ^4.0, PHP 7.3)"
+            sudo: required
+            php: 7.3
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.2.0"
+                - DACHCOM_TEST_SECTION=phpstan
+        -   name: "PHP ECS (Pimcore 6.2.x, Symfony ^4.0, PHP 7.3)"
+            sudo: required
+            php: 7.3
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.2.0"
+                - DACHCOM_TEST_SECTION=ecs
+        -   name: "Codeception Tests (Pimcore 6.0.x, Symfony ^4.0, PHP 7.3)"
+            sudo: required
+            php: 7.3
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.0.0"
+        -   name: "Codeception Tests (Pimcore 6.1.x, Symfony ^4.0, PHP 7.3)"
+            sudo: required
+            php: 7.3
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.1.0"
+        -   name: "Codeception Tests (Pimcore 6.2.x, Symfony ^4.0, PHP 7.2)"
+            sudo: required
+            php: 7.2
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.2.0"
+        -   name: "Codeception Tests (Pimcore 6.2.x, Symfony ^4.0, PHP 7.3)"
+            sudo: required
+            php: 7.3
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.2.0"
+        -   name: "Codeception Tests (Pimcore 6.2.x, Symfony ^3.4, PHP 7.3)"
+            sudo: required
+            php: 7.3
+            env:
+                - SYMFONY_VERSION=^3.4
+                - PIMCORE_SKELETON_BRANCH="tags/v2.2.0"
+    allow_failures:
+        -   env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.2.0"
+                - DACHCOM_TEST_SECTION=ecs
+    fast_finish: true
+
+cache:
+    directories:
+        - $HOME/.composer/cache
+
+install:
+    - tests/_etc/travis/install
+
+after_failure:
+    - cd $TRAVIS_BUILD_DIR
+    - cat ./lib/SchemaBundle/tests/_output/*
+
+script:
+    - _etc/travis/script
+
+notifications:
+    email:
+        - shagspiel@dachcom.ch

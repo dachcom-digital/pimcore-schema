@@ -1,0 +1,12 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    SchemaBundle\Processor\SchemaRequestProcessorInterface: '@SchemaBundle\Processor\SchemaRequestProcessor'
+    SchemaBundle\Processor\SchemaRequestProcessor: ~
+
+    SchemaBundle\Processor\SchemaElementProcessorInterface: '@SchemaBundle\Processor\SchemaElementProcessor'
+    SchemaBundle\Processor\SchemaElementProcessor: ~

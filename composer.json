@@ -1,0 +1,40 @@
+{
+    "name": "dachcom-digital/schema",
+    "type": "pimcore-bundle",
+    "license": "GPL-3.0-or-later",
+    "description": "Pimcore Schema",
+    "keywords": ["pimcore", "schema", "json-ld"],
+    "homepage": "https://github.com/dachcom-digital/pimcore-schema",
+    "authors": [
+        {
+            "name": "DACHCOM.DIGITAL Stefan Hagspiel",
+            "email": "shagspiel@dachcom.ch",
+            "homepage": "http://www.dachcom.com/",
+            "role": "Developer"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "SchemaBundle\\": "src/SchemaBundle"
+        }
+    },
+
+    "extra": {
+        "pimcore": {
+            "bundles": [
+                "SchemaBundle\\SchemaBundle"
+            ]
+        }
+    },
+    "require": {
+        "pimcore/pimcore": "^6.0.0",
+        "spatie/schema-org": "^2.6"
+    },
+    "require-dev": {
+        "codeception/codeception": "~2.3.0",
+        "phpstan/phpstan": "^0.11.1",
+        "phpstan/phpstan-symfony": "^0.11.0",
+        "symplify/easy-coding-standard": "^5.4"
+    }
+}
