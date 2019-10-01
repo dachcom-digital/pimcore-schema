@@ -67,7 +67,7 @@ class ProductGenerator implements GeneratorInterface
 
 ### Add Filter to Object
 
-```yaml
+```twig
 <div class="container">
     <h3>json ld for object</h3>
     {% set object = pimcore_object(41) %}

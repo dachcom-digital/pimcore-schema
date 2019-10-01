@@ -96,7 +96,12 @@ class KnowledgeGraphGenerator implements GeneratorInterface
 
 ![image](https://user-images.githubusercontent.com/700119/65961347-a9e22000-e456-11e9-878e-d5df75536846.png)
 
+##
+Test your output on https://search.google.com/structured-data/testing-tool
 
 ### Further Information
 - [Using ld+json Twig Helper](docs/01_Twig_Extension.md)
 - [Extended Example](docs/02_Extended_Usage.md)
+
+### ToDo 
+- Implement Validator in backend
