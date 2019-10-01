@@ -23,7 +23,7 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function register($service, $alias)
     {
@@ -42,7 +42,7 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function has($alias)
     {
@@ -50,7 +50,7 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function all()
     {
@@ -62,7 +62,7 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function get($alias)
     {

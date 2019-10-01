@@ -33,7 +33,7 @@ class SchemaRequestProcessor implements SchemaRequestProcessorInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function process(Request $request): void
     {
@@ -42,7 +42,6 @@ class SchemaRequestProcessor implements SchemaRequestProcessorInterface
         $schemaBlocks = [];
 
         foreach ($this->generatorRegistry->all() as $generator) {
-
             if ($generator->supportsRequest($request, $request->attributes->get('_route')) === false) {
                 continue;
             }

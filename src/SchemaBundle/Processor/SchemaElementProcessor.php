@@ -22,7 +22,7 @@ class SchemaElementProcessor implements SchemaElementProcessorInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function process($element): string
     {
@@ -30,6 +30,7 @@ class SchemaElementProcessor implements SchemaElementProcessorInterface
         foreach ($this->generatorRegistry->all() as $generator) {
             if ($generator->supportsElement($element) === true) {
                 $data = $generator->generateForElement($element);
+
                 break;
             }
         }

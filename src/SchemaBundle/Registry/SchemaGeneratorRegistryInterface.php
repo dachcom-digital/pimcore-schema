@@ -8,7 +8,7 @@ interface SchemaGeneratorRegistryInterface
 {
     /**
      * @param GeneratorInterface $service
-     * @param                    $alias
+     * @param string             $alias
      */
     public function register($service, $alias);
 
@@ -28,6 +28,7 @@ interface SchemaGeneratorRegistryInterface
      * @param string $alias
      *
      * @return GeneratorInterface
+     *
      * @throws \Exception
      */
     public function get($alias);

@@ -3,14 +3,13 @@
 namespace SchemaBundle\Twig\Extension;
 
 use SchemaBundle\Processor\SchemaElementProcessorInterface;
-use SchemaBundle\Processor\SchemaRequestProcessorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
 class JsonLdExtension extends AbstractExtension
 {
     /**
-     * @var SchemaRequestProcessorInterface
+     * @var SchemaElementProcessorInterface
      */
     protected $schemaElementProcessor;
 

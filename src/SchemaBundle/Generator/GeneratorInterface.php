@@ -17,9 +17,9 @@ interface GeneratorInterface
     public function supportsRequest(Request $request, string $route): bool;
 
     /**
-     * @param $element
+     * @param mixed $element
      *
-     * @return mixed
+     * @return bool
      */
     public function supportsElement($element): bool;
 
@@ -28,12 +28,12 @@ interface GeneratorInterface
      * @param Request $request
      * @param array   $schemaBlocks
      */
-     public function generateForRequest(Graph $graph, Request $request, array &$schemaBlocks): void;
+    public function generateForRequest(Graph $graph, Request $request, array &$schemaBlocks): void;
 
     /**
-     * @param $element
+     * @param mixed $element
      *
-     * @return mixed
+     * @return null|BaseType
      */
-     public function generateForElement($element): ?BaseType;
+    public function generateForElement($element): ?BaseType;
 }

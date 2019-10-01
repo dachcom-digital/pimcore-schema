@@ -1,5 +1,6 @@
 # Pimcore Schema
-Schema.org type builder and ld+json generator for pimcore. This bundle requires the `spatie/schema-org` package. 
+Schema.org type builder and ld+json generator for pimcore. 
+This bundle requires the `spatie/schema-org` package. 
 
 [![Join the chat at https://gitter.im/pimcore/pimcore](https://img.shields.io/gitter/room/pimcore/pimcore.svg?style=flat-square)](https://gitter.im/pimcore/pimcore)
 [![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -91,6 +92,11 @@ class KnowledgeGraphGenerator implements GeneratorInterface
 }
 ```
 
+## Output
+
+![image](https://user-images.githubusercontent.com/700119/65961347-a9e22000-e456-11e9-878e-d5df75536846.png)
+
+
 ### Further Information
-- [Add ld+json Twig Helper](docs/01_Twig_Extension.md)
+- [Using ld+json Twig Helper](docs/01_Twig_Extension.md)
 - [Extended Example](docs/02_Extended_Usage.md)

@@ -5,7 +5,7 @@ namespace SchemaBundle\Processor;
 interface SchemaElementProcessorInterface
 {
     /**
-     * @param $element
+     * @param mixed $element
      *
      * @return string
      */

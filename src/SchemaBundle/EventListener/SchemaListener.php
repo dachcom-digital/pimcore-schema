@@ -79,6 +79,5 @@ class SchemaListener implements EventSubscriberInterface
         }
 
         $this->schemaRequestProcessor->process($request);
-
     }
 }
