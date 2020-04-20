@@ -15,80 +15,7 @@ This bundle requires the `spatie/schema-org` package.
 
 ```json
 "require" : {
-    "dachcom-digital/schema" : "~1.0.0",
-}
-```
-
-## Bootstrap
-The Schema Bundles allows you to build schema blocks in two sections:
-
-- based on request: add ld+json data to head based on request
-- based on element: add ld+json data to your markup by using the `json_ld` twig helper based on given element
-
-## Simple Usage Example
-
-```yml
-AppBundle\Schema\Generator\KnowledgeGraphGenerator:
-    autowire: true
-    tags:
-        - {name: schema.generator, alias: knowledge_graph }
-```
-
-### Service
-
-```php
-<?php
-
-namespace AppBundle\Schema\Generator;
-
-use Spatie\SchemaOrg\Graph;
-use Spatie\SchemaOrg\BaseType;
-use Symfony\Component\HttpFoundation\Request;
-use SchemaBundle\Generator\GeneratorInterface;
-
-class KnowledgeGraphGenerator implements GeneratorInterface
-{
-    /**
-     * {@inheritDoc}
-     */
-    public function supportsRequest(Request $request, string $route): bool
-    {
-        return true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function supportsElement($element): bool
-    {
-        return false;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function generateForRequest(Graph $graph, Request $request, array &$schemaBlocks): void
-    {
-        // just a dummy here
-        // you could use the pimcore website settings for example
-
-        $myBusiness = [
-            'name'  => 'My Business Name',
-            'email' => 'info@mybusiness.com'
-        ];
-
-        $graph
-            ->organization()
-                ->name($myBusiness['name']);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function generateForElement($element): ?BaseType
-    {
-        return null;
-    }
+    "dachcom-digital/schema" : "~1.1.0",
 }
 ```
 
@@ -100,8 +27,13 @@ class KnowledgeGraphGenerator implements GeneratorInterface
 Test your output on https://search.google.com/structured-data/testing-tool
 
 ### Further Information
-- [Using ld+json Twig Helper](docs/01_Twig_Extension.md)
-- [Extended Example](docs/02_Extended_Usage.md)
+- [Usage](docs/00_Usage.md)
+  - [Use it with SEO Bundle](docs/01_SeoBundleUsage.md)
+  - [Use it in Standalone Mode](docs/02_StandaloneUsage.md)
 
-### ToDo 
-- Implement Validator in backend
+## Copyright and license
+Copyright: [DACHCOM.DIGITAL](http://dachcom-digital.ch)  
+For licensing details please visit [LICENSE.md](LICENSE.md)  
+
+## Upgrade Info
+Before updating, please [check our upgrade notes!](UPGRADE.md)

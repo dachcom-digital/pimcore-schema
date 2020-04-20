@@ -1,0 +1,10 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    SchemaBundle\Seo\Middleware\SchemaGraphAdapter:
+        tags:
+            - { name: seo.meta_data.middleware.adapter, identifier: schema_graph }

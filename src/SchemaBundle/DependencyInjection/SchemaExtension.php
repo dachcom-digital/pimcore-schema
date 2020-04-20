@@ -2,6 +2,7 @@
 
 namespace SchemaBundle\DependencyInjection;
 
+use SchemaBundle\EventListener\SchemaListener;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -12,6 +13,8 @@ class SchemaExtension extends Extension
     /**
      * @param array            $configs
      * @param ContainerBuilder $container
+     *
+     * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -20,5 +23,24 @@ class SchemaExtension extends Extension
 
         $loader = new YamlFileLoader($container, new FileLocator([__DIR__ . '/../Resources/config']));
         $loader->load('services.yml');
+
+        $this->checkDependencies($container, $loader);
+    }
+
+    /**
+     * @param ContainerBuilder $container
+     * @param YamlFileLoader   $loader
+     *
+     * @throws \Exception
+     */
+    protected function checkDependencies(ContainerBuilder $container, YamlFileLoader $loader)
+    {
+        $bundles = $container->getParameter('kernel.bundles');
+        if (array_key_exists('SeoBundle', $bundles)) {
+            $loader->load('external/seo.yml');
+            if ($container->hasDefinition(SchemaListener::class)) {
+                $container->removeDefinition(SchemaListener::class);
+            }
+        }
     }
 }
