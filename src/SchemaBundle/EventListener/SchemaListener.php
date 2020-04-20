@@ -27,6 +27,9 @@ class SchemaListener implements EventSubscriberInterface
     protected $pimcoreContextResolver;
 
     /**
+     * This service is only available in standalone mode.
+     * If you've installed the SEO Bundle, this class is not available!
+     *
      * @param SchemaRequestProcessorInterface $schemaRequestProcessor
      * @param RequestHelper                   $requestHelper
      * @param PimcoreContextResolver          $contextResolver
