@@ -36,10 +36,13 @@ class SchemaExtension extends Extension
     protected function checkDependencies(ContainerBuilder $container, YamlFileLoader $loader)
     {
         $bundles = $container->getParameter('kernel.bundles');
+        $container->setParameter('schema.flag.schema_listener_removed', false);
+
         if (array_key_exists('SeoBundle', $bundles)) {
             $loader->load('external/seo.yml');
             if ($container->hasDefinition(SchemaListener::class)) {
                 $container->removeDefinition(SchemaListener::class);
+                $container->setParameter('schema.flag.schema_listener_removed', true);
             }
         }
     }

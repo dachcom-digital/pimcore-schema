@@ -28,6 +28,7 @@ class JsonLdExtension extends AbstractExtension
     {
         return [
             new TwigFilter('json_ld', [$this, 'jsonLdFilter'], ['is_safe' => ['html']]),
+            new TwigFilter('json_ld_fragment', [$this, 'jsonLdFragmentFilter'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -39,5 +40,15 @@ class JsonLdExtension extends AbstractExtension
     public function jsonLdFilter($element)
     {
         return $this->schemaElementProcessor->process($element);
+    }
+
+    /**
+     * @param mixed $element
+     *
+     * @return mixed
+     */
+    public function jsonLdFragmentFilter($element)
+    {
+        return $this->schemaElementProcessor->processFragment($element);
     }
 }

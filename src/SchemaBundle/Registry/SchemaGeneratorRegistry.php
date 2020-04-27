@@ -10,29 +10,41 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     protected $generator;
 
     /**
-     * @var string
+     * @var array
      */
-    protected $interface;
+    protected $fragmentGenerator;
 
     /**
-     * @param string $interface
+     * @var string
      */
-    public function __construct($interface)
+    protected $generatorInterface;
+
+    /**
+     * @var string
+     */
+    protected $fragmentGeneratorInterface;
+
+    /**
+     * @param $generatorInterface
+     * @param $fragmentGeneratorInterface
+     */
+    public function __construct($generatorInterface, $fragmentGeneratorInterface)
     {
-        $this->interface = $interface;
+        $this->generatorInterface = $generatorInterface;
+        $this->fragmentGeneratorInterface = $fragmentGeneratorInterface;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function register($service, $alias)
+    public function registerGenerator($service, $alias)
     {
-        if (!in_array($this->interface, class_implements($service), true)) {
+        if (!in_array($this->generatorInterface, class_implements($service), true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     '%s needs to implement "%s", "%s" given.',
                     get_class($service),
-                    $this->interface,
+                    $this->generatorInterface,
                     implode(', ', class_implements($service))
                 )
             );
@@ -44,7 +56,26 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function has($alias)
+    public function registerFragmentGenerator($service, $alias)
+    {
+        if (!in_array($this->fragmentGeneratorInterface, class_implements($service), true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    '%s needs to implement "%s", "%s" given.',
+                    get_class($service),
+                    $this->fragmentGeneratorInterface,
+                    implode(', ', class_implements($service))
+                )
+            );
+        }
+
+        $this->fragmentGenerator[$alias] = $service;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasGenerator($alias)
     {
         return isset($this->generator[$alias]);
     }
@@ -52,7 +83,15 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function all()
+    public function hasFragmentGenerator($alias)
+    {
+        return isset($this->fragmentGenerator[$alias]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function allGenerators()
     {
         if (!is_array($this->generator)) {
             return [];
@@ -64,12 +103,36 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     /**
      * {@inheritdoc}
      */
-    public function get($alias)
+    public function allFragmentGenerators()
     {
-        if (!$this->has($alias)) {
+        if (!is_array($this->fragmentGenerator)) {
+            return [];
+        }
+
+        return $this->fragmentGenerator;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getGenerator($alias)
+    {
+        if (!$this->hasGenerator($alias)) {
             throw new \Exception('"' . $alias . '" Schema Generator does not exist');
         }
 
         return $this->generator[$alias];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFragmentGenerator($alias)
+    {
+        if (!$this->hasFragmentGenerator($alias)) {
+            throw new \Exception('"' . $alias . '" Schema Fragment Generator does not exist');
+        }
+
+        return $this->fragmentGenerator[$alias];
     }
 }

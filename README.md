@@ -28,7 +28,7 @@ Test your output on https://search.google.com/structured-data/testing-tool
 
 ### Further Information
 - [Usage](docs/00_Usage.md)
-  - [Use it with SEO Bundle](docs/01_SeoBundleUsage.md)
+  - [Use it with SEO Bundle](docs/01_SeoBundleUsage.md) (Recommended)
   - [Use it in Standalone Mode](docs/02_StandaloneUsage.md)
 
 ## Copyright and license

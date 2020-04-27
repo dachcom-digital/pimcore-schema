@@ -8,4 +8,5 @@ services:
     SchemaBundle\Registry\SchemaGeneratorRegistryInterface: '@SchemaBundle\Registry\SchemaGeneratorRegistry'
     SchemaBundle\Registry\SchemaGeneratorRegistry:
         arguments:
-            $interface: SchemaBundle\Generator\GeneratorInterface
+            $generatorInterface: SchemaBundle\Generator\GeneratorInterface
+            $fragmentGeneratorInterface: SchemaBundle\Generator\FragmentGeneratorInterface
