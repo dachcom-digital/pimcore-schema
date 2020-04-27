@@ -25,8 +25,8 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
     protected $fragmentGeneratorInterface;
 
     /**
-     * @param $generatorInterface
-     * @param $fragmentGeneratorInterface
+     * @param string $generatorInterface
+     * @param string $fragmentGeneratorInterface
      */
     public function __construct($generatorInterface, $fragmentGeneratorInterface)
     {

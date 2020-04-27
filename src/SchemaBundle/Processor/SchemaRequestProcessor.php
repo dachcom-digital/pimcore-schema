@@ -41,7 +41,7 @@ class SchemaRequestProcessor implements SchemaRequestProcessorInterface
 
         $schemaBlocks = [];
 
-        foreach ($this->generatorRegistry->all() as $generator) {
+        foreach ($this->generatorRegistry->allGenerators() as $generator) {
             if ($generator->supportsRequest($request, $request->attributes->get('_route')) === false) {
                 continue;
             }
