@@ -8,5 +8,8 @@ Just click the "update" button or execute the migration command to finish the bu
 
 ***
 
+#### Update from Version 1.1.0 to Version 1.1.1
+- **[ENHANCEMENT]**: Support spatie/schema-org >= 2.14.0
+
 #### Update from Version 1.0.0 to Version 1.1.0
 - **[ENHANCEMENT]**: Support [SEO Bundle](https://github.com/dachcom-digital/pimcore-seo)
