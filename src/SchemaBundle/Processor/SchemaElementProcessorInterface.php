@@ -17,5 +17,4 @@ interface SchemaElementProcessorInterface
      * @return string
      */
     public function processFragment($element): string;
-
 }

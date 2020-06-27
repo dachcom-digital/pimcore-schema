@@ -14,7 +14,7 @@ class SchemaGraphAdapter implements MiddlewareAdapterInterface
     protected $graph;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function boot()
     {
@@ -22,7 +22,7 @@ class SchemaGraphAdapter implements MiddlewareAdapterInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getTaskArguments(): array
     {
@@ -30,7 +30,7 @@ class SchemaGraphAdapter implements MiddlewareAdapterInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function onFinish(SeoMetaDataInterface $seoMetadata)
     {

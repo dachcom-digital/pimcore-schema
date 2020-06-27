@@ -58,7 +58,12 @@ class SchemaRequestProcessor implements SchemaRequestProcessorInterface
      */
     protected function appendHeadMeta(Graph $graph, array $schemaBlocks)
     {
-        if (count($graph->getProperties()) > 0) {
+        // spatie/schema-org changed getProperties to getNodes after 2.14
+        $nodes = method_exists($graph, 'getProperties')
+            ? $graph->getProperties()
+            : $graph->getNodes();
+
+        if (count($nodes) > 0) {
             $this->headMeta->addRaw($graph->toScript());
         }
 

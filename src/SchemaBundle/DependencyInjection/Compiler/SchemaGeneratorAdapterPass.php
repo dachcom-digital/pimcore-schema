@@ -19,8 +19,11 @@ final class SchemaGeneratorAdapterPass implements CompilerPassInterface
             $definition = $container->getDefinition(SchemaGeneratorRegistry::class);
 
             if ($container->getParameter('schema.flag.schema_listener_removed') === true) {
-                $message = sprintf('Cannot register schema generator "%s" because you have installed the SEO Bundle. If you want to add some fragment generator (via twig) use the "schema.fragment_generator" tag. Read more about it here: %s',
-                    $id, 'https://github.com/dachcom-digital/pimcore-schema/blob/master/docs/00_Usage.md');
+                $message = sprintf(
+                    'Cannot register schema generator "%s" because you have installed the SEO Bundle. If you want to add some fragment generator (via twig) use the "schema.fragment_generator" tag. Read more about it here: %s',
+                    $id,
+                    'https://github.com/dachcom-digital/pimcore-schema/blob/master/docs/00_Usage.md'
+                );
 
                 throw new InvalidConfigurationException($message);
             }
