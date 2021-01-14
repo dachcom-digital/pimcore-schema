@@ -2,13 +2,12 @@ pimcore:
     general:
         timezone: Europe/Berlin
         language: en
-        valid_languages: 'en,de'
+        valid_languages: 'en'
         path_variable: ''
         domain: 'localhost'
         redirect_to_maindomain: false
         fallback_languages:
             en: ''
-            de: ''
         default_language: en
         disable_usage_statistics: true
         debug_admin_translations: false
@@ -41,11 +40,11 @@ pimcore:
             email: ''
             simple_api_key: ''
             browser_api_key: ''
-    cache:
-        exclude_cookie: ''
-        enabled: true
+    full_page_cache:
+        enabled: false
         lifetime: null
         exclude_patterns: ''
+        exclude_cookie: ''
     httpclient:
         adapter: Socket
         proxy_host: ''

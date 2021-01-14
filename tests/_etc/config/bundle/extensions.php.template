@@ -1,7 +1,0 @@
-<?php
-
-return [
-    "bundle" => [
-        "SchemaBundle\\SchemaBundle" => TRUE,
-    ]
-];
