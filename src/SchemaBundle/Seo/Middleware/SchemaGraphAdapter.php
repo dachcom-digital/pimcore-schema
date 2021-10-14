@@ -22,10 +22,7 @@ class SchemaGraphAdapter implements MiddlewareAdapterInterface
 
     public function onFinish(SeoMetaDataInterface $seoMetadata): void
     {
-        // spatie/schema-org changed getProperties to getNodes after 2.14
-        $nodes = method_exists($this->graph, 'getProperties')
-            ? $this->graph->getProperties()
-            : $this->graph->getNodes();
+        $nodes = $this->graph->getNodes();
 
         if (count($nodes) > 0) {
             $seoMetadata->addSchema($this->graph->toArray());
