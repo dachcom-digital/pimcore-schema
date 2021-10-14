@@ -7,9 +7,9 @@ This allows you to create schema blocks within the SEO Workflow.
 ## I. Simple Usage Example
 
 ```yml
-AppBundle\MetaData\Extractor\SchemaDataExtractor:
+App\MetaData\Extractor\SchemaDataExtractor:
     tags:
-        - {name: seo.meta_data.extractor, identifier: my_schema_data_extractor }
+        - { name: seo.meta_data.extractor, identifier: my_schema_data_extractor }
 ```
 
 ### Service
@@ -17,7 +17,7 @@ AppBundle\MetaData\Extractor\SchemaDataExtractor:
 ```php
 <?php
 
-namespace AppBundle\MetaData\Extractor;
+namespace App\MetaData\Extractor;
 
 use SeoBundle\MetaData\Extractor\ExtractorInterface;
 use SeoBundle\Model\SeoMetaDataInterface;
@@ -26,18 +26,12 @@ use Spatie\SchemaOrg\Organization;
 
 class SchemaDataExtractor implements ExtractorInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function supports($element)
+    public function supports($element): bool
     {
         return $element instanceof MyClass;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function updateMetaData($element, ?string $locale, SeoMetaDataInterface $seoMetadata)
+    public function updateMetaData($element, ?string $locale, SeoMetaDataInterface $seoMetadata): void
     {
         $graphMiddleware = $seoMetadata->getMiddleware('schema_graph');
 
@@ -67,10 +61,10 @@ You're able to render json-ld data in your markup. For this you need to make use
 ### Register Service
 
 ```yml
-AppBundle\Schema\Generator\ProductFragmentGenerator:
+App\Schema\Generator\ProductFragmentGenerator:
     autowire: true
     tags:
-        - {name: schema.fragment_generator, alias: product }
+        - { name: schema.fragment_generator, alias: product }
 ```
 
 ### Build Service
@@ -87,17 +81,11 @@ use Spatie\SchemaOrg\Schema;
 
 class ProductFragmentGenerator implements FragmentGeneratorInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function supportsElement($element): bool
     {
         return $element instanceof MyClass;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForElement($element): ?BaseType
     {
         /** @var MyClass $product */

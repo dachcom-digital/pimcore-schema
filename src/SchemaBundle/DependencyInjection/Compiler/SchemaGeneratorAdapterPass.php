@@ -10,10 +10,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class SchemaGeneratorAdapterPass implements CompilerPassInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         foreach ($container->findTaggedServiceIds('schema.generator', true) as $id => $tags) {
             $definition = $container->getDefinition(SchemaGeneratorRegistry::class);

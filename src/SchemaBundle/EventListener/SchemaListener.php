@@ -11,28 +11,13 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SchemaListener implements EventSubscriberInterface
 {
-    /**
-     * @var SchemaRequestProcessorInterface
-     */
-    protected $schemaRequestProcessor;
-
-    /**
-     * @var RequestHelper
-     */
-    protected $requestHelper;
-
-    /**
-     * @var PimcoreContextResolver
-     */
-    protected $pimcoreContextResolver;
+    protected SchemaRequestProcessorInterface $schemaRequestProcessor;
+    protected RequestHelper $requestHelper;
+    protected PimcoreContextResolver $pimcoreContextResolver;
 
     /**
      * This service is only available in standalone mode.
      * If you've installed the SEO Bundle, this class is not available!
-     *
-     * @param SchemaRequestProcessorInterface $schemaRequestProcessor
-     * @param RequestHelper                   $requestHelper
-     * @param PimcoreContextResolver          $contextResolver
      */
     public function __construct(
         SchemaRequestProcessorInterface $schemaRequestProcessor,
@@ -44,24 +29,18 @@ class SchemaListener implements EventSubscriberInterface
         $this->pimcoreContextResolver = $contextResolver;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::REQUEST => ['onKernelRequest', -255]
         ];
     }
 
-    /**
-     * @param RequestEvent $event
-     */
-    public function onKernelRequest(RequestEvent $event)
+    public function onKernelRequest(RequestEvent $event): void
     {
         $request = $event->getRequest();
 
-        if ($event->isMasterRequest() === false) {
+        if ($event->isMainRequest() === false) {
             return;
         }
 

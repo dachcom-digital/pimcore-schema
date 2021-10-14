@@ -6,17 +6,7 @@ use Spatie\SchemaOrg\BaseType;
 
 interface FragmentGeneratorInterface
 {
-    /**
-     * @param mixed $element
-     *
-     * @return bool
-     */
-    public function supportsElement($element): bool;
+    public function supportsElement(mixed $element): bool;
 
-    /**
-     * @param mixed $element
-     *
-     * @return null|BaseType
-     */
-    public function generateForElement($element): ?BaseType;
+    public function generateForElement(mixed $element): ?BaseType;
 }

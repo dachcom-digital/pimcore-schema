@@ -4,17 +4,7 @@ namespace SchemaBundle\Processor;
 
 interface SchemaElementProcessorInterface
 {
-    /**
-     * @param mixed $element
-     *
-     * @return string
-     */
-    public function process($element): string;
+    public function process(mixed $element): string;
 
-    /**
-     * @param mixed $element
-     *
-     * @return string
-     */
-    public function processFragment($element): string;
+    public function processFragment(mixed $element): string;
 }

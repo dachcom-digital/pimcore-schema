@@ -7,22 +7,13 @@ use Spatie\SchemaOrg\BaseType;
 
 class SchemaElementProcessor implements SchemaElementProcessorInterface
 {
-    /**
-     * @var SchemaGeneratorRegistryInterface
-     */
-    protected $generatorRegistry;
+    protected SchemaGeneratorRegistryInterface $generatorRegistry;
 
-    /**
-     * @param SchemaGeneratorRegistryInterface $generatorRegistry
-     */
     public function __construct(SchemaGeneratorRegistryInterface $generatorRegistry)
     {
         $this->generatorRegistry = $generatorRegistry;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function process($element): string
     {
         $data = null;
@@ -41,9 +32,6 @@ class SchemaElementProcessor implements SchemaElementProcessorInterface
         return $data->toScript();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function processFragment($element): string
     {
         $data = null;
