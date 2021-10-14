@@ -7,57 +7,31 @@ use SchemaBundle\Generator\GeneratorInterface;
 
 interface SchemaGeneratorRegistryInterface
 {
-    /**
-     * @param GeneratorInterface $service
-     * @param string             $alias
-     */
-    public function registerGenerator($service, $alias);
+    public function registerGenerator(mixed $service, string $alias): void;
+
+    public function registerFragmentGenerator(mixed $service, string $alias): void;
+
+    public function hasGenerator(string $alias): bool;
+
+    public function hasFragmentGenerator(string $alias): bool;
 
     /**
-     * @param FragmentGeneratorInterface $service
-     * @param string                     $alias
+     * @return array<int, GeneratorInterface>
      */
-    public function registerFragmentGenerator($service, $alias);
+    public function allGenerators(): array;
 
     /**
-     * @param string $alias
-     *
-     * @return bool
+     * @return array<int, FragmentGeneratorInterface>
      */
-    public function hasGenerator($alias);
+    public function allFragmentGenerators(): array;
 
     /**
-     * @param string $alias
-     *
-     * @return bool
-     */
-    public function hasFragmentGenerator($alias);
-
-    /**
-     * @return array|GeneratorInterface[]
-     */
-    public function allGenerators();
-
-    /**
-     * @return array|FragmentGeneratorInterface[]
-     */
-    public function allFragmentGenerators();
-
-    /**
-     * @param string $alias
-     *
-     * @return GeneratorInterface
-     *
      * @throws \Exception
      */
-    public function getGenerator($alias);
+    public function getGenerator(string $alias): GeneratorInterface;
 
     /**
-     * @param string $alias
-     *
-     * @return FragmentGeneratorInterface
-     *
      * @throws \Exception
      */
-    public function getFragmentGenerator($alias);
+    public function getFragmentGenerator(string $alias): FragmentGeneratorInterface;
 }

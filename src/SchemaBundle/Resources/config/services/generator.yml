@@ -8,6 +8,3 @@ services:
     SchemaBundle\Tool\Install:
         arguments:
             $bundle: "@=service('kernel').getBundle('SchemaBundle')"
-        calls:
-            - [setTokenStorageUserResolver, ['@Pimcore\Bundle\AdminBundle\Security\User\TokenStorageUserResolver']]
-            - [setSerializer, ['@serializer']]

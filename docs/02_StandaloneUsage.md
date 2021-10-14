@@ -14,10 +14,10 @@ The Schema Bundles allows you to build schema blocks in two sections:
 ## I. Simple Usage Example
 
 ```yml
-AppBundle\Schema\Generator\KnowledgeGraphGenerator:
+App\Schema\Generator\KnowledgeGraphGenerator:
     autowire: true
     tags:
-        - {name: schema.generator, alias: knowledge_graph }
+        - { name: schema.generator, alias: knowledge_graph }
 ```
 
 ### Service
@@ -25,7 +25,7 @@ AppBundle\Schema\Generator\KnowledgeGraphGenerator:
 ```php
 <?php
 
-namespace AppBundle\Schema\Generator;
+namespace App\Schema\Generator;
 
 use Spatie\SchemaOrg\Graph;
 use Spatie\SchemaOrg\BaseType;
@@ -34,25 +34,16 @@ use SchemaBundle\Generator\GeneratorInterface;
 
 class KnowledgeGraphGenerator implements GeneratorInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function supportsRequest(Request $request, string $route): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function supportsElement($element): bool
     {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForRequest(Graph $graph, Request $request, array &$schemaBlocks): void
     {
         // just a dummy here
@@ -68,9 +59,6 @@ class KnowledgeGraphGenerator implements GeneratorInterface
                 ->name($myBusiness['name']);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForElement($element): ?BaseType
     {
         return null;
@@ -87,15 +75,15 @@ Use the `Graph` Element to join multiple services.
 ### Register Service
 
 ```yml
-AppBundle\Schema\Generator\OrganizationGenerator:
+App\Schema\Generator\OrganizationGenerator:
     autowire: true
     tags:
-        - {name: schema.generator, alias: organization }
+        - { name: schema.generator, alias: organization }
 
-AppBundle\Schema\Generator\ProductGenerator:
+App\Schema\Generator\ProductGenerator:
     autowire: true
     tags:
-        - {name: schema.generator, alias: product }
+        - { name: schema.generator, alias: product }
 ```
 
 ### Build Services
@@ -105,7 +93,7 @@ AppBundle\Schema\Generator\ProductGenerator:
 ```php
 <?php
 
-namespace AppBundle\Schema\Generator;
+namespace App\Schema\Generator;
 
 use SchemaBundle\Generator\GeneratorInterface;
 use Spatie\SchemaOrg\BaseType;
@@ -114,25 +102,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OrganizationGenerator implements GeneratorInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function supportsRequest(Request $request, string $route): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function supportsElement($element): bool
     {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForRequest(Graph $graph, Request $request, array &$schemaBlocks): void
     {
         $graph
@@ -140,9 +119,6 @@ class OrganizationGenerator implements GeneratorInterface
                 ->name('My awesome Company');
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForElement($element): ?BaseType
     {
         // return null since we do not support requests
@@ -156,7 +132,7 @@ class OrganizationGenerator implements GeneratorInterface
 ```php
 <?php
 
-namespace AppBundle\Schema\Generator;
+namespace App\Schema\Generator;
 
 use SchemaBundle\Generator\GeneratorInterface;
 use Spatie\SchemaOrg\BaseType;
@@ -165,25 +141,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProductGenerator implements GeneratorInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function supportsRequest(Request $request, string $route): bool
     {
         return $request->attributes->has('product-id');
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function supportsElement($element): bool
     {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForRequest(Graph $graph, Request $request, array &$schemaBlocks): void
     {
         $graph
@@ -192,9 +159,6 @@ class ProductGenerator implements GeneratorInterface
                 ->brand($graph->organization());
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForElement($element): ?BaseType
     {
         // return null since we do not support requests
@@ -213,10 +177,10 @@ You're able to render json-ld data in your markup. For this you need to make use
 ### Register Service
 
 ```yml
-AppBundle\Schema\Generator\ProductGenerator:
+App\Schema\Generator\ProductGenerator:
     autowire: true
     tags:
-        - {name: schema.generator, alias: product }
+        - { name: schema.generator, alias: product }
 ```
 
 ### Build Service
@@ -224,7 +188,7 @@ AppBundle\Schema\Generator\ProductGenerator:
 ```php
 <?php
 
-namespace AppBundle\Schema\Generator;
+namespace App\Schema\Generator;
 
 use Pimcore\Model\DataObject\TestClass;
 use SchemaBundle\Generator\GeneratorInterface;
@@ -235,33 +199,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProductGenerator implements GeneratorInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function supportsRequest(Request $request, string $route): bool
     {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function supportsElement($element): bool
     {
         return $element instanceof TestClass;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForRequest(Graph $graph, Request $request, array &$schemaBlocks): void
     {
         // nothing to do since we do not support requests
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function generateForElement($element): ?BaseType
     {
         /** @var TestClass $product */

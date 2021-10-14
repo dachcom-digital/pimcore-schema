@@ -2,7 +2,7 @@
 
 namespace SchemaBundle\Processor;
 
-use Pimcore\Templating\Helper\HeadMeta;
+use Pimcore\Twig\Extension\Templating\HeadMeta;
 use SchemaBundle\Registry\SchemaGeneratorRegistryInterface;
 use Spatie\SchemaOrg\BaseType;
 use Spatie\SchemaOrg\Graph;
@@ -10,20 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SchemaRequestProcessor implements SchemaRequestProcessorInterface
 {
-    /**
-     * @var HeadMeta
-     */
-    protected $headMeta;
+    protected HeadMeta $headMeta;
+    protected SchemaGeneratorRegistryInterface $generatorRegistry;
 
-    /**
-     * @var SchemaGeneratorRegistryInterface
-     */
-    protected $generatorRegistry;
-
-    /**
-     * @param HeadMeta                         $headMeta
-     * @param SchemaGeneratorRegistryInterface $generatorRegistry
-     */
     public function __construct(
         HeadMeta $headMeta,
         SchemaGeneratorRegistryInterface $generatorRegistry
@@ -32,9 +21,6 @@ class SchemaRequestProcessor implements SchemaRequestProcessorInterface
         $this->generatorRegistry = $generatorRegistry;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function process(Request $request): void
     {
         $graph = new Graph();
@@ -56,7 +42,7 @@ class SchemaRequestProcessor implements SchemaRequestProcessorInterface
      * @param Graph $graph
      * @param array $schemaBlocks
      */
-    protected function appendHeadMeta(Graph $graph, array $schemaBlocks)
+    protected function appendHeadMeta(Graph $graph, array $schemaBlocks): void
     {
         // spatie/schema-org changed getProperties to getNodes after 2.14
         $nodes = method_exists($graph, 'getProperties')

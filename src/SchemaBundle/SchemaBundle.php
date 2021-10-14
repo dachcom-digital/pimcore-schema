@@ -12,27 +12,18 @@ class SchemaBundle extends AbstractPimcoreBundle
 {
     use PackageVersionTrait;
 
-    const PACKAGE_NAME = 'dachcom-digital/schema';
+    public const PACKAGE_NAME = 'dachcom-digital/schema';
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getInstaller()
+    public function getInstaller(): Install
     {
         return $this->container->get(Install::class);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new SchemaGeneratorAdapterPass());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function getComposerPackageName(): string
     {
         return self::PACKAGE_NAME;

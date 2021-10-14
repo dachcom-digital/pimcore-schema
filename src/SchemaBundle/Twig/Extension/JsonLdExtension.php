@@ -8,23 +8,14 @@ use Twig\TwigFilter;
 
 class JsonLdExtension extends AbstractExtension
 {
-    /**
-     * @var SchemaElementProcessorInterface
-     */
-    protected $schemaElementProcessor;
+    protected SchemaElementProcessorInterface $schemaElementProcessor;
 
-    /**
-     * @param SchemaElementProcessorInterface $schemaElementProcessor
-     */
     public function __construct(SchemaElementProcessorInterface $schemaElementProcessor)
     {
         $this->schemaElementProcessor = $schemaElementProcessor;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('json_ld', [$this, 'jsonLdFilter'], ['is_safe' => ['html']]),
@@ -32,22 +23,12 @@ class JsonLdExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param mixed $element
-     *
-     * @return mixed
-     */
-    public function jsonLdFilter($element)
+    public function jsonLdFilter(mixed $element): string
     {
         return $this->schemaElementProcessor->process($element);
     }
 
-    /**
-     * @param mixed $element
-     *
-     * @return mixed
-     */
-    public function jsonLdFragmentFilter($element)
+    public function jsonLdFragmentFilter(mixed $element): string
     {
         return $this->schemaElementProcessor->processFragment($element);
     }

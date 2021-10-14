@@ -10,13 +10,7 @@ use Symfony\Component\Config\FileLocator;
 
 class SchemaExtension extends Extension
 {
-    /**
-     * @param array            $configs
-     * @param ContainerBuilder $container
-     *
-     * @throws \Exception
-     */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
@@ -27,13 +21,7 @@ class SchemaExtension extends Extension
         $this->checkDependencies($container, $loader);
     }
 
-    /**
-     * @param ContainerBuilder $container
-     * @param YamlFileLoader   $loader
-     *
-     * @throws \Exception
-     */
-    protected function checkDependencies(ContainerBuilder $container, YamlFileLoader $loader)
+    protected function checkDependencies(ContainerBuilder $container, YamlFileLoader $loader): void
     {
         $bundles = $container->getParameter('kernel.bundles');
         $container->setParameter('schema.flag.schema_listener_removed', false);

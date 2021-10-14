@@ -8,31 +8,19 @@ use Spatie\SchemaOrg\Graph;
 
 class SchemaGraphAdapter implements MiddlewareAdapterInterface
 {
-    /**
-     * @var Graph
-     */
-    protected $graph;
+    protected Graph $graph;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function boot()
+    public function boot(): void
     {
         $this->graph = new Graph();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTaskArguments(): array
     {
         return [$this->graph];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function onFinish(SeoMetaDataInterface $seoMetadata)
+    public function onFinish(SeoMetaDataInterface $seoMetadata): void
     {
         // spatie/schema-org changed getProperties to getNodes after 2.14
         $nodes = method_exists($this->graph, 'getProperties')

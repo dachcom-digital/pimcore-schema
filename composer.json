@@ -22,32 +22,31 @@
     "autoload-dev": {
         "psr-4": {
             "": "src/"
-        },
-        "classmap": [
-            "app/TestKernel.php"
-        ]
+        }
     },
     "extra": {
         "pimcore": {
             "bundles": [
                 "SchemaBundle\\SchemaBundle"
             ]
+        },
+        "branch-alias": {
+            "dev-master": "2.0-dev"
         }
     },
     "require": {
-        "pimcore/pimcore": "^6.0",
-        "spatie/schema-org": "^2.6"
+        "pimcore/pimcore": "^10.1",
+        "spatie/schema-org": "^3.0"
     },
     "require-dev": {
-        "codeception/codeception": "~2.4.0",
+        "codeception/codeception": "^4.1",
+        "codeception/module-webdriver": "^1.4",
+        "codeception/module-symfony": "^1.6",
         "phpstan/phpstan": "^0.12",
         "phpstan/phpstan-symfony": "^0.12",
-        "symplify/easy-coding-standard": "^5.4"
-    },
-    "conflict": {
-        "symfony/monolog-bundle": "3.6.0"
+        "symplify/easy-coding-standard": "^9.0"
     },
     "suggest": {
-        "dachcom-digital/seo": "^1.0"
+        "dachcom-digital/seo": "^2.0"
     }
 }
