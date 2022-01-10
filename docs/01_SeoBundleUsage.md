@@ -72,7 +72,7 @@ App\Schema\Generator\ProductFragmentGenerator:
 ```php
 <?php
 
-namespace AppBundle\Schema\Generator;
+namespace App\Schema\Generator;
 
 use Pimcore\Model\DataObject\MyClass;
 use SchemaBundle\Generator\FragmentGeneratorInterface;
