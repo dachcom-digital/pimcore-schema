@@ -5,14 +5,14 @@ This bundle requires the `spatie/schema-org` package.
 [![Join the chat at https://gitter.im/pimcore/pimcore](https://img.shields.io/gitter/room/pimcore/pimcore.svg?style=flat-square)](https://gitter.im/pimcore/pimcore)
 [![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Latest Release](https://img.shields.io/packagist/v/dachcom-digital/schema.svg?style=flat-square)](https://packagist.org/packages/dachcom-digital/schema)
-[![Tests](https://img.shields.io/github/workflow/status/dachcom-digital/pimcore-schema/Codeception/master?style=flat-square&logo=github&label=codeception)](https://github.com/dachcom-digital/pimcore-schema/actions?query=workflow%3ACodeception+branch%3Amaster)
-[![PhpStan](https://img.shields.io/github/workflow/status/dachcom-digital/pimcore-schema/PHP%20Stan/master?style=flat-square&logo=github&label=phpstan%20level%204)](https://github.com/dachcom-digital/pimcore-schema/actions?query=workflow%3A"PHP+Stan"+branch%3Amaster)
+[![Tests](https://img.shields.io/github/actions/workflow/status/dachcom-digital/pimcore-schema/.github/workflows/codeception.yml?branch=master&style=flat-square&logo=github&label=codeception)](https://github.com/dachcom-digital/pimcore-schema/actions?query=workflow%3ACodeception+branch%3Amaster)
+[![PhpStan](https://img.shields.io/github/actions/workflow/status/dachcom-digital/pimcore-schema/.github/workflows/php-stan.yml?branch=master&style=flat-square&logo=github&label=phpstan%20level%204)](https://github.com/dachcom-digital/pimcore-schema/actions?query=workflow%3A"PHP+Stan"+branch%3Amaster)
 
 ### Release Plan
 
 | Release | Supported Pimcore Versions        | Supported Symfony Versions | Release Date | Maintained     | Branch     |
 |---------|-----------------------------------|----------------------------|--------------|----------------|------------|
-| **2.x** | `10.1`                            | `5.3`                      | --           | Feature Branch | dev-master |
+| **2.x** | `10.1`                            | `5.4`                      | --           | Feature Branch | dev-master |
 | **1.x** | `6.0` - `6.9`                     | `3.4`, `^4.4`              | 01.10.2019   | Unsupported    | 1.x        |
 
 ## Installation
