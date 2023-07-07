@@ -10,10 +10,10 @@ This bundle requires the `spatie/schema-org` package.
 
 ### Release Plan
 
-| Release | Supported Pimcore Versions        | Supported Symfony Versions | Release Date | Maintained     | Branch     |
-|---------|-----------------------------------|----------------------------|--------------|----------------|------------|
-| **2.x** | `10.1`                            | `5.4`                      | --           | Feature Branch | dev-master |
-| **1.x** | `6.0` - `6.9`                     | `3.4`, `^4.4`              | 01.10.2019   | Unsupported    | 1.x        |
+| Release | Supported Pimcore Versions | Supported Symfony Versions | Release Date | Maintained     | Branch     |
+|---------|----------------------------|----------------------------|--------------|----------------|------------|
+| **2.x** | `10.1` - `10.6`            | `5.4`                      | --           | Feature Branch | dev-master |
+| **1.x** | `6.0` - `6.9`              | `3.4`, `^4.4`              | 01.10.2019   | Unsupported    | 1.x        |
 
 ## Installation
 
