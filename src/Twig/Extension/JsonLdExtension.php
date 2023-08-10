@@ -8,11 +8,8 @@ use Twig\TwigFilter;
 
 class JsonLdExtension extends AbstractExtension
 {
-    protected SchemaElementProcessorInterface $schemaElementProcessor;
-
-    public function __construct(SchemaElementProcessorInterface $schemaElementProcessor)
+    public function __construct(protected SchemaElementProcessorInterface $schemaElementProcessor)
     {
-        $this->schemaElementProcessor = $schemaElementProcessor;
     }
 
     public function getFilters(): array

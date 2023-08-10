@@ -36,12 +36,6 @@ pimcore:
     email:
         debug:
             email_addresses: opensource@dachcom.ch
-    services:
-        google:
-            client_id: ''
-            email: ''
-            simple_api_key: ''
-            browser_api_key: ''
     full_page_cache:
         exclude_cookie: ''
         enabled: false
