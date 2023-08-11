@@ -10,31 +10,37 @@ This bundle requires the `spatie/schema-org` package.
 
 ### Release Plan
 
-| Release | Supported Pimcore Versions | Supported Symfony Versions | Release Date | Maintained     | Branch     |
-|---------|----------------------------|----------------------------|--------------|----------------|------------|
-| **2.x** | `10.1` - `10.6`            | `5.4`                      | --           | Feature Branch | dev-master |
-| **1.x** | `6.0` - `6.9`              | `3.4`, `^4.4`              | 01.10.2019   | Unsupported    | 1.x        |
+| Release | Supported Pimcore Versions | Supported Symfony Versions | Release Date | Maintained     | Branch |
+|---------|----------------------------|----------------------------|--------------|----------------|--------|
+| **3x**  | `11.0`                     | `6.2`                      | --           | Feature Branch | master |
+| **2.x** | `10.1` - `10.6`            | `5.4`                      | --           | Bugfixes       | 2.x    |
+| **1.x** | `6.0` - `6.9`              | `3.4`, `^4.4`              | 01.10.2019   | Unsupported    | 1.x    |
 
 ## Installation
 
 ```json
 "require" : {
-    "dachcom-digital/schema" : "~2.0.0",
+    "dachcom-digital/schema" : "~3.0.0",
 }
 ```
 
-- Execute: `$ bin/console pimcore:bundle:enable SchemaBundle`
+Add Bundle to `bundles.php`:
+```php
+return [
+    SchemaBundle\SchemaBundle::class => ['all' => true],
+];
+```
+
 - Execute: `$ bin/console pimcore:bundle:install SchemaBundle`
 
 ## Upgrading
 - Execute: `$ bin/console doctrine:migrations:migrate --prefix 'SchemaBundle\Migrations'`
-- 
-## Output
 
+## Output
 ![image](https://user-images.githubusercontent.com/700119/65961347-a9e22000-e456-11e9-878e-d5df75536846.png)
 
-##
-Test your output on https://search.google.com/structured-data/testing-tool
+> [!NOTE]  
+> Test your output on https://search.google.com/structured-data/testing-tool
 
 ### Further Information
 - [Usage](docs/00_Usage.md)

@@ -1,6 +1,7 @@
 # Standalone Usage
 
-> **Note!!** This does not work if you have installed the [SEO Bundle](https://github.com/dachcom-digital/pimcore-seo)!
+> [!NOTE]  
+> This does not work if you have installed the [SEO Bundle](https://github.com/dachcom-digital/pimcore-seo)!
 > Read more about it [here](./00_Usage.md)!
 
 ***
