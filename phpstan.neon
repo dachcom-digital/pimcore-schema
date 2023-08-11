@@ -7,6 +7,6 @@ parameters:
     symfony:
         container_xml_path: %currentWorkingDirectory%/var/cache/test/TestKernelTestDebugContainer.xml
         constant_hassers: false
-    excludes_analyse:
+    excludePaths:
         # as long we don't install the dependencies :(
-        - '*SchemaBundle/Seo/Middleware/SchemaGraphAdapter.php'
+        - src/Seo/Middleware/SchemaGraphAdapter.php

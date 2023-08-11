@@ -24,6 +24,11 @@ class SchemaBundle extends AbstractPimcoreBundle
         $container->addCompilerPass(new SchemaGeneratorAdapterPass());
     }
 
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
+
     protected function getComposerPackageName(): string
     {
         return self::PACKAGE_NAME;

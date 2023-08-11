@@ -7,11 +7,8 @@ use Spatie\SchemaOrg\BaseType;
 
 class SchemaElementProcessor implements SchemaElementProcessorInterface
 {
-    protected SchemaGeneratorRegistryInterface $generatorRegistry;
-
-    public function __construct(SchemaGeneratorRegistryInterface $generatorRegistry)
+    public function __construct(protected SchemaGeneratorRegistryInterface $generatorRegistry)
     {
-        $this->generatorRegistry = $generatorRegistry;
     }
 
     public function process($element): string

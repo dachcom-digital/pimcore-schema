@@ -10,15 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SchemaRequestProcessor implements SchemaRequestProcessorInterface
 {
-    protected HeadMeta $headMeta;
-    protected SchemaGeneratorRegistryInterface $generatorRegistry;
-
     public function __construct(
-        HeadMeta $headMeta,
-        SchemaGeneratorRegistryInterface $generatorRegistry
+        protected HeadMeta $headMeta,
+        protected SchemaGeneratorRegistryInterface $generatorRegistry
     ) {
-        $this->headMeta = $headMeta;
-        $this->generatorRegistry = $generatorRegistry;
     }
 
     public function process(Request $request): void
@@ -38,10 +33,6 @@ class SchemaRequestProcessor implements SchemaRequestProcessorInterface
         $this->appendHeadMeta($graph, $schemaBlocks);
     }
 
-    /**
-     * @param Graph $graph
-     * @param array $schemaBlocks
-     */
     protected function appendHeadMeta(Graph $graph, array $schemaBlocks): void
     {
         $nodes = $graph->getNodes();
