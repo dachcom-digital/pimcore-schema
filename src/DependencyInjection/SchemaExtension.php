@@ -20,20 +20,15 @@ class SchemaExtension extends Extension implements PrependExtensionInterface
         $loader->load('services.yaml');
     }
 
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
-        if ($container->hasExtension('seo')) {
+        if (!$container->hasExtension('seo')) {
             return;
         }
 
         $loader = new YamlFileLoader($container, new FileLocator([__DIR__ . '/../../config']));
 
         $container->setParameter('schema.third_party.seo.enabled', true);
-
         $loader->load('third_party/seo.yaml');
-
-        if ($container->hasDefinition(SchemaListener::class)) {
-            $container->removeDefinition(SchemaListener::class);
-        }
     }
 }
