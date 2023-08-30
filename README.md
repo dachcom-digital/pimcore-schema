@@ -12,8 +12,8 @@ This bundle requires the `spatie/schema-org` package.
 
 | Release | Supported Pimcore Versions | Supported Symfony Versions | Release Date | Maintained     | Branch |
 |---------|----------------------------|----------------------------|--------------|----------------|--------|
-| **3x**  | `11.0`                     | `6.2`                      | --           | Feature Branch | master |
-| **2.x** | `10.1` - `10.6`            | `5.4`                      | --           | Bugfixes       | 2.x    |
+| **3x**  | `11.0`                     | `6.2`                      | 30.08.2023   | Feature Branch | master |
+| **2.x** | `10.1` - `10.6`            | `5.4`                      | 14.10.2021   | Bugfixes       | 2.x    |
 | **1.x** | `6.0` - `6.9`              | `3.4`, `^4.4`              | 01.10.2019   | Unsupported    | 1.x    |
 
 ## Installation
