@@ -62,19 +62,11 @@ class SchemaGeneratorRegistry implements SchemaGeneratorRegistryInterface
 
     public function allGenerators(): array
     {
-        if (!is_array($this->generator)) {
-            return [];
-        }
-
         return $this->generator;
     }
 
     public function allFragmentGenerators(): array
     {
-        if (!is_array($this->fragmentGenerator)) {
-            return [];
-        }
-
         return $this->fragmentGenerator;
     }
 

@@ -1,7 +1,10 @@
 {
     "name": "dachcom-digital/schema",
     "type": "pimcore-bundle",
-    "license": "GPL-3.0-or-later",
+    "license": [
+        "GPL-3.0-or-later",
+        "proprietary"
+    ],
     "description": "Pimcore Schema",
     "keywords": ["pimcore", "schema", "json-ld"],
     "homepage": "https://github.com/dachcom-digital/pimcore-schema",
@@ -39,9 +42,9 @@
         "codeception/codeception": "^5.0",
         "codeception/module-symfony": "^3.1",
         "codeception/module-webdriver": "^4.0",
-        "phpstan/phpstan": "^1.0",
-        "phpstan/phpstan-symfony": "^1.0",
-        "symplify/easy-coding-standard": "^9.0"
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
+        "symplify/easy-coding-standard": "~12.2.0"
     },
     "suggest": {
         "dachcom-digital/seo": "^3.0"
