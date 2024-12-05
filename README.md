@@ -1,12 +1,12 @@
 # Pimcore Schema Bundle
-Schema.org type builder and ld+json generator for pimcore. 
-This bundle requires the `spatie/schema-org` package. 
-
-[![Join the chat at https://gitter.im/pimcore/pimcore](https://img.shields.io/gitter/room/pimcore/pimcore.svg?style=flat-square)](https://gitter.im/pimcore/pimcore)
 [![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-DCL-white.svg?style=flat-square&color=%23ff5c5c)](LICENSE.md)
 [![Latest Release](https://img.shields.io/packagist/v/dachcom-digital/schema.svg?style=flat-square)](https://packagist.org/packages/dachcom-digital/schema)
 [![Tests](https://img.shields.io/github/actions/workflow/status/dachcom-digital/pimcore-schema/.github/workflows/codeception.yml?branch=master&style=flat-square&logo=github&label=codeception)](https://github.com/dachcom-digital/pimcore-schema/actions?query=workflow%3ACodeception+branch%3Amaster)
 [![PhpStan](https://img.shields.io/github/actions/workflow/status/dachcom-digital/pimcore-schema/.github/workflows/php-stan.yml?branch=master&style=flat-square&logo=github&label=phpstan%20level%204)](https://github.com/dachcom-digital/pimcore-schema/actions?query=workflow%3A"PHP+Stan"+branch%3Amaster)
+
+Schema.org type builder and ld+json generator for pimcore. 
+This bundle requires the `spatie/schema-org` package. 
 
 ### Release Plan
 
@@ -20,7 +20,7 @@ This bundle requires the `spatie/schema-org` package.
 
 ```json
 "require" : {
-    "dachcom-digital/schema" : "~3.0.0",
+    "dachcom-digital/schema" : "~3.1.0",
 }
 ```
 
@@ -47,12 +47,12 @@ return [
   - [Use it with SEO Bundle](docs/01_SeoBundleUsage.md) (Recommended)
   - [Use it in Standalone Mode](docs/02_StandaloneUsage.md)
 
+## Upgrade Info
+Before updating, please [check our upgrade notes!](UPGRADE.md)
+
 ## License
 **DACHCOM.DIGITAL AG**, Löwenhofstrasse 15, 9424 Rheineck, Schweiz  
 [dachcom.com](https://www.dachcom.com), dcdi@dachcom.ch  
 Copyright © 2024 DACHCOM.DIGITAL. All rights reserved.  
 
 For licensing details please visit [LICENSE.md](LICENSE.md)  
-
-## Upgrade Info
-Before updating, please [check our upgrade notes!](UPGRADE.md)
