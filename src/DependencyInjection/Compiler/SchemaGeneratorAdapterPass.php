@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This source file is available under two different licenses:
+ *   - GNU General Public License version 3 (GPLv3)
+ *   - DACHCOM Commercial License (DCL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ * @copyright  Copyright (c) DACHCOM.DIGITAL AG (https://www.dachcom-digital.com)
+ * @license    GPLv3 and DCL
+ */
+
 namespace SchemaBundle\DependencyInjection\Compiler;
 
 use SchemaBundle\EventListener\SchemaListener;
@@ -18,7 +29,6 @@ final class SchemaGeneratorAdapterPass implements CompilerPassInterface
         }
 
         foreach ($container->findTaggedServiceIds('schema.generator', true) as $id => $tags) {
-
             $definition = $container->getDefinition(SchemaGeneratorRegistry::class);
 
             if ($this->hasSeoBundle($container)) {
@@ -46,7 +56,7 @@ final class SchemaGeneratorAdapterPass implements CompilerPassInterface
 
     private function hasSeoBundle(ContainerBuilder $container): bool
     {
-        /** @phpstan-ignore-next-line */
+        /* @phpstan-ignore-next-line */
         return $container->hasParameter('schema.third_party.seo.enabled') && $container->getParameter('schema.third_party.seo.enabled') === true;
     }
 }
