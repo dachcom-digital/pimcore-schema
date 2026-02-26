@@ -26,8 +26,8 @@ class JsonLdExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('json_ld', [$this, 'jsonLdFilter'], ['is_safe' => ['html']]),
-            new TwigFilter('json_ld_fragment', [$this, 'jsonLdFragmentFilter'], ['is_safe' => ['html']]),
+            new TwigFilter('json_ld', $this->jsonLdFilter(...), ['is_safe' => ['html']]),
+            new TwigFilter('json_ld_fragment', $this->jsonLdFragmentFilter(...), ['is_safe' => ['html']]),
         ];
     }
 
